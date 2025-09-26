@@ -1,8 +1,4 @@
-<?php
 
-echo url('CSS/general.css');
-
-?>
 
 <!DOCTYPE html>
 <html>
