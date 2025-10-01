@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,226;1,226&family=Jersey+10&family=Staatliches&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset( resources/css/general.css }}">
+    {{-- <link rel="stylesheet" href="{{ asset( resources/css/general.css )}}"> --}}
     <style>
         :root{
             ---white: rgba(252, 252, 252, 1);
@@ -193,9 +193,9 @@
 
     <div class="headerMenu" id="headerMenu">
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a href="/">Expo</a></li>
-            <li><a href="/">About Us</a></li>
+            <li><a href="/about">About Us</a></li>
         </ul>
     </div>
 

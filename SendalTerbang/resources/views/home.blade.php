@@ -1,4 +1,5 @@
-<?php
+<body>
+    @include('element.header')
+    @include('element.footer')
+</body>
 
-include "../resources/element/header.inc.php";
-include "../resources/element/footer.inc.php";
