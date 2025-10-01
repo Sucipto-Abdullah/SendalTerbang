@@ -13,7 +13,11 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php url('CSS/general.css')?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,226;1,226&family=Jersey+10&family=Staatliches&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset( resources/css/general.css }}">
     <style>
         :root{
             ---white: rgba(252, 252, 252, 1);
@@ -41,13 +45,17 @@
         .logo{
             margin: auto;
             margin-left: 0;
+            align-content: center;
             height: 100%;
         }
-        p{
+        a{
             align-content: center;
+            text-decoration: none;
+            color: black;
             margin: auto;
             height: 100%;
-            font-size: 16px;
+            font-size: 18px;
+            font-family: 'jersey 10';
         }
 
         .searchBar{
@@ -55,8 +63,16 @@
             height: 100%;
             width: 500px;
             margin: auto;
-            align-content: center;
+            align-content: center; 
+            align-self: center;
         }
+
+        .searchBar form{
+            margin: auto;
+            display: flex;
+            gap: 10px;
+        }
+
         #searchInput{
             margin: auto;
             align-content: center;
@@ -69,8 +85,13 @@
             border-color: black;
         }
         #searchInpus::focus{
-            border-width: 2px;
-            border-color: pink;
+            border: none;
+        }
+
+        #searchButton{
+            background:none;
+            border: none;
+            margin: auto;
         }
 
         .ButtonElement{
@@ -91,6 +112,24 @@
             color: black;
         }
 
+        .headerMenu{
+            width: 110px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            background-color: red;
+            position: fixed;
+            translate: -50% 0;
+            left: 80%;
+        }
+
+        .headerMenu ul{
+            list-style-type: none;
+            margin-left: -10px;
+            margin-top: 10px;
+            
+        }
+
     </style>
 
 </head>
@@ -100,10 +139,17 @@
         <div class="content">
 
             <div class="logo" style="grid-area: logo;">
-                <p><i class="bi bi-gear-fill"></i> Sendal Terbang</p>
+                <a href="/">
+                    <i class="bi bi-gear-fill"></i> Sendal Terbang
+                </a>
             </div>
             <div class="searchBar" style="grid-area: searchBar;">
-                <input id="searchInput" placeholder="Cari Proyek" >
+
+                <form action="">
+                    <input id="searchInput" placeholder="Cari Proyek" >
+                    <button id="searchButton"><i class="bi bi-search"></i></button>
+                </form>
+
             </div>
             <div class="ButtonElement" style="grid-area: menu;">
                 <button class="buttonMenu"> <i class="bi bi-list"></i></button>
@@ -111,5 +157,19 @@
 
         </div>
     </div>
+
+    <div class="headerMenu">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Expo</a></li>
+            <li><a href="/">About Us</a></li>
+        </ul>
+    </div>
+
 </body>
+
+<script>
+
+</script>
+
 </html>
