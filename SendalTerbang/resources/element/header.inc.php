@@ -21,6 +21,8 @@
     <style>
         :root{
             ---white: rgba(252, 252, 252, 1);
+            ---black: rgba(0, 0, 0, 1);
+            ---blue: rgba(56, 68, 235, 1);
         }
         body{
             margin: auto;
@@ -65,6 +67,7 @@
             margin: auto;
             align-content: center; 
             align-self: center;
+            font-family: 'jersey 10';
         }
 
         .searchBar form{
@@ -114,21 +117,55 @@
 
         .headerMenu{
             width: 110px;
-            min-height: 120px;
             display: flex;
             flex-direction: column;
-            background-color: red;
+            background-color: var(---white);
             position: fixed;
-            translate: -20% 0;
-            left: 80%;
+            translate: -20% 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+            opacity: 0;
+            height: 0px;
+            
+            /* transition: 0.05s ease; */
+            transition: 0.1s ease-in-out;
         }
-
+        .headerMenu.active{
+            opacity: 1;
+            height: 120px;
+        }
+        
         .headerMenu ul{
             list-style-type: none;
+            margin: auto;
+            margin-left: -10px;
+            margin-top: -10px;
+            gap: 0px;
+            transition: 0.1s ease-in-out;
+            opacity: 0;
+        }
+
+        .headerMenu.active ul{
+            list-style-type: none;
+            margin: auto;
             margin-left: -10px;
             margin-top: 10px;
-            
+            gap: 10px;
+            opacity: 1;
         }
+        
+        .headerMenu ul li{
+            box-shadow: 0px 2px rgba(0, 0, 0, 0);
+            color: var(--black);
+            margin: auto;
+            opacity: 1;
+        }
+
+        .headerMenu ul li:hover{
+            box-shadow: 0px 2px rgba(0, 0, 0, 0.43);
+            color: var(---blue);
+        }
+
 
     </style>
 
@@ -152,7 +189,7 @@
 
             </div>
             <div class="ButtonElement" id="ButtonMenu" style="grid-area: menu;">
-                <button class="buttonMenu"> <i class="bi bi-list"></i></button>
+                <button class="buttonMenu" onclick="setHeaderMenu()"> <i class="bi bi-list"></i></button>
             </div>
 
         </div>
@@ -169,16 +206,25 @@
 </body>
 
 <script>
-    const menuButtonPos = document.querySelector('.ButtonElement');
+
+    //set Hedaer Menu Position
+    const menuButton = document.querySelector('.ButtonElement');
+    const headerMenuElement = document.querySelector('.headerMenu');
     const headerMenu = document.getElementById('headerMenu');
     
+    screenDisplay();
+
     window.addEventListener("load", screenDisplay);
     window.addEventListener("resize", screenDisplay);
 
     function screenDisplay(){
-        let buttonPosition = menuButtonPos.getBoundingClientRect();
-
+        let buttonPosition = menuButton.getBoundingClientRect();
         headerMenu.style.left = `${buttonPosition.x}px`;
+    }
+
+    //set header menu button
+    function setHeaderMenu(){
+        headerMenuElement.classList.toggle("active");
     }
 
 </script>
