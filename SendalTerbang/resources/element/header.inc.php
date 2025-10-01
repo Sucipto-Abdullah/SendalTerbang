@@ -119,7 +119,7 @@
             flex-direction: column;
             background-color: red;
             position: fixed;
-            translate: -50% 0;
+            translate: -20% 0;
             left: 80%;
         }
 
@@ -151,14 +151,14 @@
                 </form>
 
             </div>
-            <div class="ButtonElement" style="grid-area: menu;">
+            <div class="ButtonElement" id="ButtonMenu" style="grid-area: menu;">
                 <button class="buttonMenu"> <i class="bi bi-list"></i></button>
             </div>
 
         </div>
     </div>
 
-    <div class="headerMenu">
+    <div class="headerMenu" id="headerMenu">
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/">Expo</a></li>
@@ -169,6 +169,17 @@
 </body>
 
 <script>
+    const menuButtonPos = document.querySelector('.ButtonElement');
+    const headerMenu = document.getElementById('headerMenu');
+    
+    window.addEventListener("load", screenDisplay);
+    window.addEventListener("resize", screenDisplay);
+
+    function screenDisplay(){
+        let buttonPosition = menuButtonPos.getBoundingClientRect();
+
+        headerMenu.style.left = `${buttonPosition.x}px`;
+    }
 
 </script>
 
