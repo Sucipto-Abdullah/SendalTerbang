@@ -1,0 +1,31 @@
+@import "general.css";
+
+.project-card{
+    background-color: var(---white);
+    width: 250px;
+
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 20px;
+
+    font-family: 'jersey 10';
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 60% 15% 15% 10%;
+    grid-template-areas: "image", "title", 'desc', 'rate';
+}
+
+.rate-card{
+    display: flex;
+}
+
+.project-rate{
+    color: var(---black);
+
+    i{
+        font-size: 14px;
+        color: var(---yellow);
+    }
+}

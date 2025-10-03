@@ -113,6 +113,7 @@
 
         .headerMenu{
             width: 110px;
+            z-index: 100;
             display: flex;
             flex-direction: column;
             background-color: var(---white);
