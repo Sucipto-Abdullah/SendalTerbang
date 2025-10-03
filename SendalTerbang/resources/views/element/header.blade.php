@@ -113,10 +113,11 @@
 
         .headerMenu{
             width: 110px;
+            
             display: flex;
             flex-direction: column;
             background-color: var(---white);
-            position: fixed;
+            position: absolute;
             translate: -20% 5px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
             border-radius: 3px;
@@ -216,6 +217,7 @@
     function screenDisplay(){
         let buttonPosition = menuButton.getBoundingClientRect();
         headerMenu.style.left = `${buttonPosition.x}px`;
+        headerMenu.style.top = `${buttonPosition.y+50}px`;
     }
 
     //set header menu button
