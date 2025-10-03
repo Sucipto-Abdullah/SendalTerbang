@@ -129,7 +129,8 @@
         }
         .headerMenu.active{
             opacity: 1;
-            height: 120px;
+            height: 130px;
+            z-index: 100;
         }
         
         .headerMenu ul{
@@ -197,6 +198,7 @@
             <li><a href="/home">Home</a></li>
             <li><a href="/">Expo</a></li>
             <li><a href="/about">About Us</a></li>
+            <li><a href="/kontak">Kontak Kami</a></li>
         </ul>
     </div>
 
