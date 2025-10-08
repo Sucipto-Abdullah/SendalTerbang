@@ -12,8 +12,13 @@
                 <h1>Kumpulan Tugas & Proyek Web</h1>
                 <p>Temukan berbagai contoh implementasi web development dari tugas-tugas kuliah dan proyek pribadi. Dari HTML dasar hingga aplikasi web modern.</p>
             </div>
-        </section>
+    </section>
         
+    <section class="highlights">
+        <div class="container">
+            <h2 class="section-title">Sorotan</h2>
+            
+    </section>
         <section class="projects">
             <div class="container">
                 <h2 class="section-title">Proyek Terbaru</h2>
