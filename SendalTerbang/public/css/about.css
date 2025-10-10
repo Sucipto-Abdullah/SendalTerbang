@@ -101,6 +101,136 @@ body {
     position: relative;
     padding: 0 20px;
 }
+ .Kontak {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .Kontak h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .Kontak h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .baris {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .kolom1, .kolom2 {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+        }
+        
+        .kolom1 {
+            background: #f8f9fa;
+        }
+        
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            min-height: 400px;
+        }
+        
+        .kontak-info {
+            margin-bottom: 30px;
+        }
+        
+        .kontak-info h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .kontak-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .kontak-icon {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .kontak-detail h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .kontak-detail p {
+            color: #666;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .baris {
+                flex-direction: column;
+            }
+            
+            .kolom1, .kolom2 {
+                width: 100%;
+            }
+        }
 
 /* Tambahkan animasi untuk judul ABOUT US */
 @keyframes fadeInDown {
