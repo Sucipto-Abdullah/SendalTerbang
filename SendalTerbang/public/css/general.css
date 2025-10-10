@@ -6,3 +6,9 @@
     ---blue: rgba(56, 68, 235, 1);
     ---yellow: rgb(238, 156, 50);
 }
+
+main{
+    min-height: 80vh;
+    width: max(960px);
+    margin: auto;
+}
