@@ -1,36 +1,56 @@
-// JavaScript untuk slider
 document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".slider-track");
     const slides = document.querySelectorAll(".slide");
-    const dots = document.querySelectorAll(".dot");
-    const prevBtn = document.querySelector(".prev-btn");
-    const nextBtn = document.querySelector(".next-btn");
+    const dots = document.querySelectorAll(".slider-dot");
+    const prevBtn = document.querySelector(".slider-arrow.prev");
+    const nextBtn = document.querySelector(".slider-arrow.next");
     let currentSlide = 0;
+    const slideCount = slides.length;
 
-    function showSlide(n) {
-        // Sembunyikan semua slide
-        slides.forEach((slide) => slide.classList.remove("active"));
-        dots.forEach((dot) => dot.classList.remove("active"));
+    // Function to update slider position
+    function updateSlider() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-        // Tampilkan slide yang dipilih
-        currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].classList.add("active");
-        dots[currentSlide].classList.add("active");
+        // Update active dot
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentSlide);
+        });
     }
 
-    // Event listener untuk tombol navigasi
-    prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
-    nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
+    // Next slide function
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        updateSlider();
+    }
 
-    // Event listener untuk dots
-    dots.forEach((dot) => {
+    // Previous slide function
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        updateSlider();
+    }
+
+    // Event listeners for buttons
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
-            const slideIndex = parseInt(dot.getAttribute("data-slide"));
-            showSlide(slideIndex);
+            currentSlide = index;
+            updateSlider();
         });
     });
 
-    // Auto slide setiap 5 detik
-    setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
+    // Auto slide (optional)
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    // Pause auto slide on hover
+    const sliderContainer = document.querySelector(".slider-container");
+    sliderContainer.addEventListener("mouseenter", () => {
+        clearInterval(slideInterval);
+    });
+
+    sliderContainer.addEventListener("mouseleave", () => {
+        slideInterval = setInterval(nextSlide, 5000);
+    });
 });
