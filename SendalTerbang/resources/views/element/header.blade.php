@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,226;1,226&family=Jersey+10&family=Staatliches&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Untuk ikon -->
-    {{-- <link rel="stylesheet" href="{{ asset( resources/css/general.css )}}"> --}}
     <style>
         :root{
             ---white: rgba(252, 252, 252, 1);
@@ -200,6 +199,9 @@
             <li><a href="/">Expo</a></li>
             <li><a href="/about">About Us</a></li>
             <li><a href="/kontak">Kontak Kami</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/expo">Expo</a></li>
+            <li><a href="/">About Us</a></li>
         </ul>
     </div>
 
@@ -229,5 +231,3 @@
     }
 
 </script>
-
-</html>
