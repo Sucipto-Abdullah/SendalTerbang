@@ -27,12 +27,11 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/expo">Expo</a></li>
-            <li><a href="/">About Us</a></li>
+            <li><a href="/about">About Us</a></li>
         </ul>
     </div>
 
 </body>
-
 <script>
 
     //set Hedaer Menu Position

@@ -17,4 +17,14 @@ class pageController extends Controller
         $page = "expo";
         return view("layouts/main", compact("page"));
     }
+    public function about()
+    {
+        $page = "about";
+        return view("layouts/main", compact("page"));
+    }
+    public function contact()
+    {
+        $page = "contact";
+        return view("layouts/main", compact("page"));
+    }
 }

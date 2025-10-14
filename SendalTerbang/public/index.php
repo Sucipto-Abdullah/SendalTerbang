@@ -33,6 +33,8 @@ $app->handleRequest(Request::capture());
     <link rel="stylesheet" type="text/css" href="css/card-project.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/expoPage.css">
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/about.css">
     <title>Sendal Terbang</title>
 </head>
 </html>

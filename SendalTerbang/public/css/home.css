@@ -4,15 +4,6 @@
     padding: 0 20px;
 }
 
-/* Header */
-header {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
 .hero {
     position: relative;
     color: white;
@@ -321,14 +312,6 @@ header {
 
 .project-link:hover {
     border-color: #667eea;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 40px 0;
 }
 
 /* Animations */

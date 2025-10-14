@@ -3,6 +3,8 @@
 :root{
     ---white: rgba(252, 252, 252, 1);
     ---black: rgba(0, 0, 0, 1);
+    ---gray: rgb(59, 59, 59);
+    ---lightGray: rgb(225, 225, 225);
     ---blue: rgba(56, 68, 235, 1);
     ---yellow: rgb(238, 156, 50);
 }
