@@ -1,11 +1,11 @@
 <body>
     
     <header>
-        @include("layouts/header");
+        @include("layouts/header")
     </header>
 
     <main>
-        @include("page/$page");
+        @include("page/$page")
     </main>
 
     <footer>

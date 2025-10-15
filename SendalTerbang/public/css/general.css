@@ -13,4 +13,5 @@ main{
     min-height: 80vh;
     width: max(960px);
     margin: auto;
+    margin-bottom: 20px;
 }
