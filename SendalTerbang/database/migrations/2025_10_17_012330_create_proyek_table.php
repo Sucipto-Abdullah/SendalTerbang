@@ -17,8 +17,6 @@ return new class extends Migration
             $table->date('tanggal-proyek');
             $table->integer('semester');
             $table->integer('kelompok');
-
-            // $table->foreign('kelompok')->references('id')->on('kelompok');
         });
     }
 

@@ -11,15 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //  Schema::table('anggota_kelompok', function (Blueprint $table) {
-
-        //     $table->foreign('mahasiswa')->
-        //             references('id')->on('mahasiswa');
-                    
-        //     $table->foreign('kelompok')->
-        //             references('id')->on('kelompok');
-        // });
-
          Schema::table('kelompok', function (Blueprint $table) {
 
             $table->foreign('idProyek')->references('id')->on('proyek');

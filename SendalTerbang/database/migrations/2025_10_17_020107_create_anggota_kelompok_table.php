@@ -15,9 +15,6 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->integer('mahasiswa'); 
             $table->integer('kelompok'); 
-
-            // $table->foreign('mahasiswa')->references('id')->on('mahasiswa')->onDelete('cascade');
-            // $table->foreign('kelompok')->references('id')->on('kelompok')->onDelete('cascade');
         });
     }
 

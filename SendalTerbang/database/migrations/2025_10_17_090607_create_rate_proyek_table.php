@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('proyek', function (Blueprint $table) {
+        Schema::create('rate_proyek', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->integer(('idProyek'));
+            $table->date('tanggal');
 
-            $table->foreign('kelompok')->
-                    references('id')->on('kelompok');
+            $table->foreign('idProyek')->references('id')->on('proyek')->onDelete("cascade");
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('rate_proyek');
     }
 };
