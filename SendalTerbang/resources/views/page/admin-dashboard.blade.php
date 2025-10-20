@@ -28,3 +28,7 @@
     </div>
 
 </div>
+
+@include("page.admin-kelolaProyek")
+
+@include("page.admin-kelolaAkun")

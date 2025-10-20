@@ -21,5 +21,4 @@
         </tr>
         @endfor
     </table>
-
 </div>
