@@ -13,13 +13,13 @@ class admin extends Controller
     }
     public function kelolaAkun( ){
 
-        $part = 'kelola akun';
+        $part = 'kelolaAkun';
         return view("layouts/admin", compact("part"));
     }
 
     public function kelolaProyek( ){
 
-        $part = 'kelola proyek';
+        $part = 'kelolaProyek';
         return view("layouts/admin", compact("part"));
     }
     public function vertifikasi( ){

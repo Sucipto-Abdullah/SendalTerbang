@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/adminNav.css">
     <link rel="stylesheet" href="css/adminDash.css">
+    <link rel="stylesheet" href="css/adminAccCTRL.css">
     <title>Sendal Terbang</title>
 </head>
 </html>
