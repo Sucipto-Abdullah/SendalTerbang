@@ -35,8 +35,8 @@ class pageController extends Controller
         return view("layouts/main", compact("page"));
     }
     
-    public function admin( $part ){
-        $page = $part;
+    public function admin( ){
+        $page = 'admin';
         return view("layouts/admin", compact("page"));
     }
 }
