@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\String_;
 
 class pageController extends Controller
 {
@@ -26,5 +27,16 @@ class pageController extends Controller
     {
         $page = "contact";
         return view("layouts/main", compact("page"));
+    }
+
+    public function project()
+    {
+        $page = "project";
+        return view("layouts/main", compact("page"));
+    }
+    
+    public function admin( $part ){
+        $page = $part;
+        return view("layouts/admin", compact("page"));
     }
 }

@@ -35,6 +35,7 @@ $app->handleRequest(Request::capture());
     <link rel="stylesheet" type="text/css" href="css/expoPage.css">
     <link rel="stylesheet" href="css/homePage.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/admin-nav.css">
     <title>Sendal Terbang</title>
 </head>
 </html>

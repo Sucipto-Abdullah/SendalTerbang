@@ -7,6 +7,7 @@
     ---lightGray: rgb(225, 225, 225);
     ---blue: rgba(56, 68, 235, 1);
     ---yellow: rgb(238, 156, 50);
+    ---dark-blue: rgb(33, 40, 62);
 }
 
 main{
@@ -14,4 +15,5 @@ main{
     width: max(960px);
     margin: auto;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
