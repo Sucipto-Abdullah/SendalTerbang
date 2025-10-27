@@ -12,6 +12,7 @@ body {
     background-color: var(---white);
     box-shadow: 2px 0 2px black;
     position: relative;
+    
 }
 
 .content {

@@ -20,22 +20,21 @@
     <section>
         <div class="kontak-page">
             <h4><b>KONTAK KAMI</b></h4>
-            <div>
-                
+            <div class="kontak-isi" style="display: flex; gap: 50px; margin-top: 20px;">
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.88809076707!2d108.28145169999999!3d-6.4084147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6eb87d1fcaf97d%3A0x4fc15b3c8407ada4!2sPoliteknik%20Negeri%20Indramayu!5e0!3m2!1sid!2sid!4v1761525407903!5m2!1sid!2sid" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="kontak-info">
+                    <p>Alamat : Jl. Perjuangan No.KM. 15, Kandanghaur, Kec. Kandanghaur, Kabupaten Indramayu, Jawa Barat 45252</p>
+                    <p>Email :</p>
+                    <p>Telepon : (0234) 275492</p>
+                </div>
             </div>
         </div>
     </section>
 </body>
 
 <style>
-    .kontak-page{
-    margin-top: 12vh;
-    border: 1.5px solid var(---black);
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
+
+
 </style>

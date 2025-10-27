@@ -8,6 +8,8 @@ Route::get('/', [pageController::class, 'home'] )->name('home');
 Route::get('/expo', [pageController::class, 'expo'] )->name('expo');
 Route::get('/about', [pageController::class, 'about'] )->name('about');
 Route::get('/contact', [pageController::class, 'contact'] )->name('contact');
+Route::get('/login', [pageController::class, 'login'] )->name('login');
+
 
 Route::get('/admin', [admin::class, 'admin'] )->name('admin');
 Route::get('/admin-dashboard', [admin::class, 'admin'] )->name('admin');

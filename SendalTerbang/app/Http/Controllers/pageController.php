@@ -39,4 +39,10 @@ class pageController extends Controller
         $page = 'admin';
         return view("layouts/admin", compact("page"));
     }
+
+    public function login()
+    {
+        $page = "login";
+        return view("page/login", compact("page"));
+    }
 }

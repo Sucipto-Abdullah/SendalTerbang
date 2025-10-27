@@ -28,3 +28,14 @@ body {
     align-items: center;
     height: 60vh;
 }
+.kontak-page{
+    margin-top: 8vh;
+    border: 1.5px solid var(---black);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
