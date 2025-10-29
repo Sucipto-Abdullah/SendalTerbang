@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/repository.css">
     <link rel="stylesheet" href="css/expoPage.css">
+    <link rel="stylesheet" href="css/adminNav.css">
     <title>Sendal Terbang</title>
 </head>
 <body>

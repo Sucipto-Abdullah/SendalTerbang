@@ -41,6 +41,7 @@ class AuthController extends Controller
 
         // Kirim pesan error ke view
         return back()->with('error', ' Username atau password salah!')->onlyInput('username');
+        
     }
 
     public function logout(Request $request)
