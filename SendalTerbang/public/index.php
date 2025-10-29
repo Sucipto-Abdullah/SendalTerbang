@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/repository.css">
+    <link rel="stylesheet" href="css/expoPage.css">
     <title>Sendal Terbang</title>
 </head>
 <body>

@@ -33,6 +33,13 @@
       border-top: 2px solid black;
     }
     
+        .tentang-kami{
+        border: 1px solid rgb(0, 0, 0,0.7);
+        padding: 20px;
+        padding-bottom: 30px;
+        border-radius: 20px;
+        background-color: white;
+    }
     /* Responsive fix */
     @media (max-width: 768px) {
       .hero-section {

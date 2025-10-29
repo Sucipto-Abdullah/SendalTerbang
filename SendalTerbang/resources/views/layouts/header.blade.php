@@ -20,22 +20,38 @@
                         @endguest
 
                         @auth
-                        <div class="dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center text-white text-decoration-none" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
-                                <i class="bi bi-person-circle me-2"></i> {{ Auth::user()->name }}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="{{ route('profile') }}">Profil</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item text-danger">Logout</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
+
+                            <div class="dropdown user-dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center text-white text-decoration-none" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-avatar me-2">
+                                        <img src="{{ asset('image/profile-default.png') }}" alt="Avatar">
+                                    </div>
+                                    <span class="user-name">{{ Auth::user()->username }}</span>
+                                    
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-end shadow user-menu-animated" aria-labelledby="userDropdown">
+                                    <li class="dropdown-header text-center">
+                                        <div class="user-avatar-lg mx-auto mb-2">
+                                            <img src="{{ asset('image/profile-default.png') }}" alt="Avatar">
+                                        </div>
+                                        <h6 class="mb-0">{{ ucfirst(Auth::user()->username) }}</h6>
+                                        <small class="text-muted">{{ ucfirst(Auth::user()->role) }}</small>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ route('profile') }}"><i class="bi bi-person me-2"></i> Profil Saya</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="POST" class="m-0">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item text-danger"><i class="bi bi-box-arrow-right me-2"></i> Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
                         @endauth
+
                     </div>
                 </div>
             </div>
@@ -99,6 +115,3 @@
             </div>
         </nav>
     </header>
-    <style>
-        
-    </style>

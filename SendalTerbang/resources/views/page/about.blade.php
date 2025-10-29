@@ -36,13 +36,7 @@
   </section>
 
   <style>
-    .tentang-kami{
-        border: 1px solid rgb(0, 0, 0,0.7);
-        padding: 20px;
-        padding-bottom: 30px;
-        border-radius: 20px;
-        background-color: white;
-    }
+
   </style>
   
 

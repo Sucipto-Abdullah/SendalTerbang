@@ -109,7 +109,7 @@
     </section>
 
 {{-- All project --}}
-    <section class="all-projects">
+    <section class="all-projects" id="projek">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Projects</h2>

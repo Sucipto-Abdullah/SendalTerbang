@@ -50,6 +50,70 @@
     padding: 8px 15px !important;
 }
 
+        .user-dropdown .user-avatar img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+                .user-dropdown:hover .user-avatar img {
+                    transform: scale(1.1);
+                }
+
+                .user-dropdown .user-name {
+                    font-weight: 500;
+                    font-size: 15px;
+                    max-width: 120px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                /* Dropdown animasi */
+                .user-menu-animated {
+                    border-radius: 12px;
+                    overflow: hidden;
+                    animation: fadeInUp 0.25s ease;
+                    backdrop-filter: blur(10px);
+                }
+
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(5px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                .dropdown-header {
+                    padding: 10px 15px;
+                    background: rgba(240, 240, 255, 0.2);
+                }
+
+                .user-avatar-lg img {
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 50%;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    object-fit: cover;
+                }
+
+                .dropdown-item {
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    transition: 0.2s;
+                }
+
+                .dropdown-item:hover {
+                    background-color: rgba(0, 212, 255, 0.1);
+                }
 /* Mobile styles */
 @media (max-width: 991.98px) {
     .header-top {

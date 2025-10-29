@@ -1,15 +1,32 @@
 
 
     <!-- Hero Section -->
-    <section class="hero-section text-white d-flex align-items-center">
-        <div class="overlay"></div>
-        <div class="container text-center position-relative">
-            <h1 class="display-5 fw-bold">REPOSITORY</h1>
-            <p class="lead mt-3">
-                Media penyimpanan digital karya ilmiah dan hasil riset civitas akademika Politeknik Negeri Indramayu.
-            </p>
-        </div>
-    </section>
+        <section class="hero-section text-white d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container text-center position-relative">
+                <h1 class="display-5 fw-bold mb-3">REPOSITORY</h1>
+                <p class="lead mb-5">
+                    Media penyimpanan digital karya ilmiah dan hasil riset civitas akademika<br>
+                    <span class="fw-semibold">Politeknik Negeri Indramayu</span>.
+                </p>
+
+                <!-- 🔍 Search Bar -->
+                <form action="{{ route('repository') }}" method="GET" class="search-bar mx-auto">
+                    <div class="input-group input-group-lg shadow">
+                        <input 
+                            type="text" 
+                            name="q" 
+                            class="form-control search-input" 
+                            placeholder="Cari proyek, topik, atau kata kunci..."
+                            required>
+                        <button class="btn btn-search" type="submit">
+                            <i class="bi bi-search me-1"></i> Cari
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
 
     <div id="spacer" style="height: 60px;"></div>
 
