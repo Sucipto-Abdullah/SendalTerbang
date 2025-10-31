@@ -20,7 +20,6 @@
                         @endguest
 
                         @auth
-
                             <div class="dropdown user-dropdown">
                                 <a class="nav-link dropdown-toggle d-flex align-items-center text-white text-decoration-none" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-avatar me-2">
@@ -40,6 +39,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="{{ route('profile') }}"><i class="bi bi-person me-2"></i> Profil Saya</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('userProyek') }}"><i class="bi bi-clipboard-data me-2"></i>Proyek</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>

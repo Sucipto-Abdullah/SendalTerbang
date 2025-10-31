@@ -44,6 +44,10 @@ class pageController extends Controller
         $page = 'admin';
         return view("layouts/admin", compact("page"));
     }
+    public function userProyek( ){
+        $page = 'userProyek';
+        return view("layouts/main", compact("page"));
+    }
 
     public function login()
     {

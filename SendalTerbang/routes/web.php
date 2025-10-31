@@ -59,6 +59,7 @@ Route::get('/expo', [pageController::class, 'expo'] )->name('expo');
 Route::get('/repository', [pageController::class, 'repository'] )->name('repository');
 Route::get('/about', [pageController::class, 'about'] )->name('about');
 Route::get('/contact', [pageController::class, 'contact'] )->name('contact');
+Route::get('/userProyek', [pageController::class, 'userProyek'] )->name('userProyek');
 Route::get('/login', [pageController::class, 'login'] )->name('login');
 
 
