@@ -12,7 +12,7 @@
     </nav>
     
     <main>
-        @include("page.admin-$part")
+        @include("admin.$part")
     </main>
 
 

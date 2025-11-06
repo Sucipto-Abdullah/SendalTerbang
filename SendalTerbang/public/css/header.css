@@ -1,262 +1,163 @@
-@import url(general.css);
-
-body {
-    margin: auto;
-    background-color: var(---white);
+.bg-polindra {
+    background: linear-gradient(90deg, #002f6c, #005bb5);
 }
 
-.header {
-    margin: auto;
-    height: 58px;
-    width: 100%;
-    background-color: var(---white);
-    box-shadow: 2px 0 2px black;
-    position: relative;
+.header-top {
+    padding: 15px 0;
 }
 
-.content {
-    margin: auto;
-    width: max(960px);
-    height: 100%;
-    display: grid;
-    grid-template-columns: 15% 60% 15% 10%;
-    grid-template-areas: "logo searchBar auth menu";
-    align-items: center;
-}
-
-.logo {
-    margin: auto;
-    margin-left: 0;
-    align-content: center;
-    height: 100%;
-}
-
-a {
-    align-content: center;
-    text-decoration: none;
-    color: black;
-    margin: auto;
-    height: 100%;
-    font-size: 18px;
-    font-family: 'jersey 10';
-}
-
-.searchBar {
-    display: flex;
-    height: 100%;
-    width: 500px;
-    margin: auto;
-    align-content: center; 
-    align-self: center;
-    font-family: 'jersey 10';
-}
-
-.searchBar form {
-    margin: auto;
-    display: flex;
-    gap: 10px;
-}
-
-#searchInput {
-    margin: auto;
-    align-content: center;
-    height: 24px;
-    width: 300px;
-    font-size: 12px;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-}
-
-#searchInput::focus {
-    border: none;
-}
-
-#searchButton {
-    background: none;
-    border: none;
-    margin: auto;
-}
-
-/* Auth Section Styles */
-.auth-section {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.sign-in-btn, .sign-up-btn {
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-family: 'jersey 10';
-    font-size: 14px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.sign-in-btn {
-    color: #333;
-    border: 1px solid #333;
-}
-
-.sign-in-btn:hover {
-    background-color: #333;
-    color: white;
-}
-
-.sign-up-btn {
-    background-color: #007bff;
-    color: white;
-    border: 1px solid #007bff;
-}
-
-.sign-up-btn:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
-
-/* User Menu Styles */
-.user-menu {
-    position: relative;
-}
-
-.user-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    background: none;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'jersey 10';
-    font-size: 14px;
-}
-
-.user-button:hover {
-    background-color: #f8f9fa;
-}
-
-.user-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
+.navbar-toggler{
+    color:white;;
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    min-width: 150px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
+    margin-bottom: 10px;
 }
 
-.user-dropdown.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.navbar-brand {
+    font-size: 1.1rem;
 }
 
-.user-dropdown a, 
-.user-dropdown button {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-    text-align: left;
-    border: none;
-    background: none;
-    color: #333;
-    text-decoration: none;
-    font-family: 'jersey 10';
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.user-dropdown a:hover, 
-.user-dropdown button:hover {
-    background-color: #f8f9fa;
-}
-
-.user-dropdown form {
-    margin: 0;
-}
-
-.ButtonElement {
-    margin: auto;
-    margin-right: 0;
-    height: 100%;
-    align-content: center;
-    width: 50px;
-}
-
-.buttonMenu {
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0);
-    text-align: right;
-    width: 100%;
-    height: 100%;
-    border: none;
-    font-size: 24px;
-    color: black;
-    cursor: pointer;
-}
-
-.headerMenu {
-    width: 110px;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    background-color: var(---white);
-    position: absolute;
-    translate: -20% 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 3px;
-    opacity: 0;
-    height: 0px;
-    transition: 0.1s ease-in-out;
-}
-
-.headerMenu.active {
-    opacity: 1;
-    height: auto;
+.nav-main {
     padding: 10px 0;
+    border-bottom: 0.8px solid rgb(255, 255, 255);
 }
 
-.headerMenu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    transition: 0.1s ease-in-out;
-}
-
-.headerMenu.active ul {
-    opacity: 1;
-}
-
-.headerMenu ul li {
-    padding: 8px 15px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-.headerMenu ul li:hover {
-    box-shadow: 0px 2px rgba(0, 0, 0, 0.43);
-    color: var(---blue);
-}
-
-.headerMenu ul li a {
-    font-size: 18px;
+/* PERUBAHAN UTAMA: Navigasi rata kiri */
+.nav-main .navbar-nav {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin-right: auto !important;
     
+}
+
+.nav-main .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+    margin: 0 5px;
+}
+
+.nav-main .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-main .nav-link.active {
+    font-weight: 600;
+}
+
+.user-menu .nav-link {
+    padding: 8px 15px !important;
+}
+
+        .user-dropdown .user-avatar img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+                .user-dropdown:hover .user-avatar img {
+                    transform: scale(1.1);
+                }
+
+                .user-dropdown .user-name {
+                    font-weight: 500;
+                    font-size: 15px;
+                    max-width: 120px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                /* Dropdown animasi */
+                .user-menu-animated {
+                    border-radius: 12px;
+                    overflow: hidden;
+                    animation: fadeInUp 0.25s ease;
+                    backdrop-filter: blur(10px);
+                }
+
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(5px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                .dropdown-header {
+                    padding: 10px 15px;
+                    background: rgba(240, 240, 255, 0.2);
+                }
+
+                .user-avatar-lg img {
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 50%;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    object-fit: cover;
+                }
+
+                .dropdown-item {
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    transition: 0.2s;
+                }
+
+                .dropdown-item:hover {
+                    background-color: rgba(0, 212, 255, 0.1);
+                }
+/* Mobile styles */
+@media (max-width: 991.98px) {
+    .header-top {
+        padding: 10px 0;
+    }
+    
+    .nav-main {
+        padding: 15px 0;
+    }
+    
+    .nav-main .navbar-nav {
+        gap: 5px;
+        width: 100%;
+    }
+    
+    .nav-main .nav-link {
+        text-align: left; /* Diubah dari center ke left */
+        margin: 2px 0;
+        padding: 12px 15px;
+        width: 100%;
+    }
+    
+    .user-menu {
+        margin-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 15px;
+        width: 100%;
+    }
+    
+    .user-menu .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+    .nav-main .navbar-nav {
+        gap: 10px;
+        margin-left: 0 !important; /* Pastikan tidak ada margin kiri */
+    }
+    
+    /* Optional: Jika ingin menu user tetap di kanan */
+    .user-menu {
+        margin-left: auto;
+    }
 }

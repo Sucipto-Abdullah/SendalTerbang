@@ -1,0 +1,99 @@
+.bg-polindra {
+    background: linear-gradient(90deg, #002f6c, #005bb5);
+}
+
+.header-top {
+    padding: 15px 0;
+}
+
+.navbar-toggler{
+    color:white;;
+    background: white;
+    margin-bottom: 10px;
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+}
+
+.nav-main {
+    padding: 10px 0;
+    border-bottom: 0.8px solid rgb(255, 255, 255);
+}
+
+/* PERUBAHAN UTAMA: Navigasi rata kiri */
+.nav-main .navbar-nav {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin-right: auto !important;
+    
+}
+
+.nav-main .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+    margin: 0 5px;
+}
+
+.nav-main .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-main .nav-link.active {
+    font-weight: 600;
+}
+
+.user-menu .nav-link {
+    padding: 8px 15px !important;
+}
+
+/* Mobile styles */
+@media (max-width: 991.98px) {
+    .header-top {
+        padding: 10px 0;
+    }
+    
+    .nav-main {
+        padding: 15px 0;
+    }
+    
+    .nav-main .navbar-nav {
+        gap: 5px;
+        width: 100%;
+    }
+    
+    .nav-main .nav-link {
+        text-align: left; /* Diubah dari center ke left */
+        margin: 2px 0;
+        padding: 12px 15px;
+        width: 100%;
+    }
+    
+    .user-menu {
+        margin-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 15px;
+        width: 100%;
+    }
+    
+    .user-menu .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+    .nav-main .navbar-nav {
+        gap: 10px;
+        margin-left: 0 !important; /* Pastikan tidak ada margin kiri */
+    }
+    
+    /* Optional: Jika ingin menu user tetap di kanan */
+    .user-menu {
+        margin-left: auto;
+    }
+}

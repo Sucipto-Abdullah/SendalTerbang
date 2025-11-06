@@ -1,16 +1,16 @@
-<div class="project-list">
 
-    @for($i=0; $i<10; $i++)
-        <div class='project-card'>
-            <a class="project-link" href="/">
-                <img class="project-image" src="images/chips.jpg" alt="Inituh gambar project" style="grid-area: image;">
-            
-                <h1 class="project-title" style="grid-area: title;" >Judul Projectnya</h1>
-                <p class="project-desc" style="grid-area: desc;" >Deskripsi singkat projectnya</p>
-                    
-                <p class="project-rate" style="grid-area: rate;" ><i class="bi bi-star-fill"></i>  4/5</p>
-            </a>
+<section class="expo-closed d-flex flex-column justify-content-center align-items-center text-center py-5">
+    <div class="container">
+        <div class="empty-state">
+            <img src="{{ asset('image/logo.png') }}" alt="No Expo" class="empty-illustration mb-4">
+            <h2 class="fw-bold text-gradient">Expo Project Belum Dimulai</h2>
+            <p class="text-muted mb-4" >
+                Saat ini belum ada event Expo yang sedang berlangsung.<br>
+                Silakan kembali lagi nanti untuk melihat pameran proyek mahasiswa terbaru 
+            </p>
+            <a href="{{ url('/') }}" class="btn btn-gradient px-4 py-2">Kembali ke Beranda</a>
         </div>
-    @endfor
+    </div>
+</section>
 
-</div>
+
