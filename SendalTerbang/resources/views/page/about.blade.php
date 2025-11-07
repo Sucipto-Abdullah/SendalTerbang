@@ -23,7 +23,7 @@
       </div>
       <div class="row align-items-center">
         <div class="col-md-6">
-          <img src="{{ asset('image/logo.png') }}" alt="Logo Polindra" class="img-fluid rounded shadow-sm">
+          <img src="{{ asset('image/logo.png') }}" alt="Logo Polindra" class="">
         </div>
         <div class="col-md-6">
           <p class="mt-3 mt-md-0">
