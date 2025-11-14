@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Cast\String_;
+use App\Models\mahasiswa;
+use App\Models\proyek;
+use App\Models\kelompok;
+use App\Models\gambarProyek;
 
 class pageController extends Controller
 {
@@ -40,10 +44,24 @@ class pageController extends Controller
         return view("layouts/main", compact("page"));
     }
     
-    public function admin( ){
+    public function admin(){
         $page = 'admin';
-        return view("layouts/admin", compact("page"));
+        $mahasiswa = mahasiswa::all();
+        $proyek = proyek::all();
+        $proyek_ver = proyek::where("verifikasi", true)->get();
+        return view("layouts/admin", compact("page", "mahasiswa", "proyek", "proyek_ver"));
     }
+
+    public funciton kelolaAkun( $keyword = "" ){
+        $page = "kelolaAkun";
+        if($keyword == ""){
+            $mahasiswa = mahasiswa::all();
+            return view("layouts/admin", compact("mahasiswa"));
+        }else{
+            // $mahasiswa = 
+        }
+    }
+
     public function userProyek( ){
         $page = 'userProyek';
         return view("layouts/main", compact("page"));
@@ -55,7 +73,7 @@ class pageController extends Controller
         return view("page/login", compact("page"));
     }
     
-        public function search(Request $request)
+    public function search(Request $request)
     {
         $query = $request->input('q');
 
