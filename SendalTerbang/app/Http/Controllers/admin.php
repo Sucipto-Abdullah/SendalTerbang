@@ -3,25 +3,72 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\mahasiswa;
+use App\Http\Controllers\mahasiswaController;
+use App\Http\Controllers\proyekController;
+use App\Models\proyek;
+use App\Models\kelompok;
+use App\Models\gambarProyek;
 
 class admin extends Controller
 {
     public function admin( ){
         
         $part = 'dashboard';
-        return view("layouts/admin", compact("part"));
+        $mahasiswa = mahasiswa::all();
+        $proyek = proyek::all();
+        $jumlah_proyek = count($proyek);
+        $proyek_ver = proyek::where("verifikasi", true)->get();
+        return view("layouts/admin", compact("part", "mahasiswa", "jumlah_proyek", "proyek", "proyek_ver"));
     }
-    public function kelolaAkun( ){
+    public function kelolaAkun(){
 
         $part = 'kelolaAkun';
-        return view("layouts/admin", compact("part"));
+        $page = "kelolaAkun";
+        
+        if( isset($_GET["keyword"]) ){
+            $keyword = $_GET["keyword"];
+            $search_history = $keyword;
+            $mahasiswa = mahasiswaController::getMahasiswaFromKeyword($keyword);
+            return view("layouts/admin", compact("part", "mahasiswa", "search_history"));
+        }else{
+            $mahasiswa = mahasiswa::all();
+            $search_history = "";
+            return view("layouts/admin", compact("part", "mahasiswa", "search_history") );
+        }
     }
 
-    public function kelolaProyek( ){
+    public function kelolaProyek(){
 
         $part = 'kelolaProyek';
-        return view("layouts/admin", compact("part"));
+
+        if(isset($_GET["keyword"])){
+            $keyword = $_GET["keyword"];
+            $proyek = proyekController::getProyekByKeyWord($keyword);
+            return view("layouts/admin", compact("part", "proyek", "keyword"));
+        }else{
+            $proyek = proyek::all();
+            return view("layouts/admin", compact("part", "proyek"));
+        }
     }
+    
+    public function detailProyek(){
+        if(isset($_GET["proyekInfo"])){
+            $proyekID = $_GET["proyekInfo"];
+            try {    
+                $part = "detailProyek";
+                $proyek = proyekController::getProyekById($proyekID);
+                return view("layouts/admin", compact("part", "proyek"));
+            } catch (\Throwable $th) {
+                $part = "nullProyek";
+                $proyek = proyekController::getProyekById($proyekID);
+                return view("layouts/admin", compact("part", "proyek"));
+            }
+        }else{
+            self::kelolaProyek();
+        }
+    }
+
     public function vertifikasi( ){
 
         $part = 'vertifikasi';

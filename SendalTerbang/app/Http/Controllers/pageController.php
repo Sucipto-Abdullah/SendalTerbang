@@ -44,28 +44,6 @@ class pageController extends Controller
         return view("layouts/main", compact("page"));
     }
     
-    public function admin(){
-        $page = 'admin';
-        $mahasiswa = mahasiswa::all();
-        $proyek = proyek::all();
-        $proyek_ver = proyek::where("verifikasi", true)->get();
-        return view("layouts/admin", compact("page", "mahasiswa", "proyek", "proyek_ver"));
-    }
-
-    public funciton kelolaAkun( $keyword = "" ){
-        $page = "kelolaAkun";
-        if($keyword == ""){
-            $mahasiswa = mahasiswa::all();
-            return view("layouts/admin", compact("mahasiswa"));
-        }else{
-            // $mahasiswa = 
-        }
-    }
-
-    public function userProyek( ){
-        $page = 'userProyek';
-        return view("layouts/main", compact("page"));
-    }
 
     public function login()
     {

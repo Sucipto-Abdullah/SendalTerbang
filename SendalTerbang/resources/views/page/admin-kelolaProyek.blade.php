@@ -1,7 +1,7 @@
 <div class="table list-project">
 
-    <form class="find-project" action="">
-        <input class="find-project-input" type="text" placeholder="cari akun">
+    <form class="find-project" action="/admin-kelola-proyek" method="GET">
+        <input class="find-project-input" type="text" value="{{ isset($keyword) ? $keyword : "" }}" name="keyword" placeholder="cari Proyek">
         <button class="find-project-button">Cari</button>
     </form>
 
@@ -9,17 +9,21 @@
         <tr>
             <th>No</th>
             <th>Judul</th>
-            <th>Kelas</th>
-            <th>Ankatan</th>
+            <th>Link</th>
+            <th>Updated</th>
             <th>Aksi</th>
         </tr>
-        @for($i=0; $i<10;$i++)
+        @for($i=0; $i<count($proyek);$i++)
         <tr>
-            <td class="cenCol">$i</td>
-            <td>Wingspart25</td>
-            <td class="cenCol">2B</td>
-            <td class="cenCol">2024</td>
-            <td class="cenCol">.</td>
+            <td class="cenCol">{{ $i+1 }}</td>
+            <td>{{ $proyek[$i]["judul"] }}</td>
+            <td class="cenCol">{{ $proyek[$i]["link"] }}</td>
+            <td class="cenCol">{{ $proyek[$i]["diperbarui"] }}</td>
+            <td class="cenCol">
+                <form action="/admin-kelola-proyek/detail" method="GET">
+                    <button name="proyekInfo" value="{{ $proyek[$i]["id"] }}" class="project-info-button">Info</button>
+                </form>
+            </td>
         </tr>
         @endfor
     </table>

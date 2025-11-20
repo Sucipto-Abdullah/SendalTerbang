@@ -42,11 +42,6 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Dashboard Admin
-Route::get('/admin/dashboard', function () {
-    Route::get('/admin',[admin::class,'admin'])->name('user');
-})->middleware('auth')->name('layouts/admin');
-
 // Halaman utama mahasiswa
 Route::get('/', function () {
     return view('home');
@@ -65,7 +60,8 @@ Route::get('/login', [pageController::class, 'login'] )->name('login');
 
 Route::get('/admin', [admin::class, 'admin'] )->name('admin');
 Route::get('/admin-dashboard', [admin::class, 'admin'] )->name('admin');
-Route::get('/admin-kelolaAkun', [admin::class, 'kelolaAkun'] )->name('admin');
+Route::get('/admin-kelola-akun', [admin::class, 'kelolaAkun'] )->name('admin');
 Route::get('/admin-kelola-proyek', [admin::class, 'kelolaProyek'] )->name('admin');
+Route::get('/admin-kelola-proyek/detail', [admin::class, 'detailProyek'] )->name('admin');
 Route::get('/admin-vertifikasi', [admin::class, 'vertifikasi'] )->name('admin');
 Route::get('/admin-kelolaDanPenilaian', [admin::class, 'kelolaDanPenilaian'] )->name('admin');
