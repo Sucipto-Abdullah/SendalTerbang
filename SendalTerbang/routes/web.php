@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProyekController;
+
+
+Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek.index');
+Route::post('/proyek', [ProyekController::class, 'store'])->name('proyek.store');
 
 
 Route::middleware(['guest'])->group(function () {
