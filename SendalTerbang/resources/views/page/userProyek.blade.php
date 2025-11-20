@@ -1,7 +1,8 @@
 <section class="project-section">
     <div class="header">
         <h2>Proyek Kamu</h2>
-        <a href="{{ route('proyek.create') }}" class="btn-add">+ Tambah Proyek</a>
+        <a href="" class="btn-add"  style="text-decoration: none">+ Tambah Proyek</a>
+        {{-- {{ route('proyek.create') }} --}}
     </div>
 
     <div class="table-wrapper">

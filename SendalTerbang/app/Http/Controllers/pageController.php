@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Cast\String_;
 use Illuminate\Support\Facades\Auth;
 
+// use App\Http\Controller\Proyek;
+use App\Models\Proyek;
+
 class pageController extends Controller
 {
     public function home()
@@ -47,7 +50,8 @@ class pageController extends Controller
     }
     public function userProyek( ){
         $page = 'userProyek';
-        return view("layouts/main", compact("page"));
+        $proyek = Proyek::all();
+        return view("layouts/main", compact("page", "proyek"));
     }
 
     public function login()

@@ -52,7 +52,7 @@ class ProyekController extends Controller
 {
     $proyek = Proyek::orderBy('created_at', 'desc')->get();
 
-    return view('proyek.index', compact('proyek'));
+    return view('layouts/proyek.index', compact('proyek'));
 }
 
 

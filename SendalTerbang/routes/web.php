@@ -8,7 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProyekController;
 
-
+Route::resource('proyek', ProyekController::class);
 Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek.index');
 Route::post('/proyek', [ProyekController::class, 'store'])->name('proyek.store');
 
