@@ -48,7 +48,7 @@
 
                 @empty
                 <tr>
-                    <td colspan="7" style="text-align:center;">
+                    <td colspan="7" style="text-align:center; height: 250px;">
                         Belum ada proyek yang kamu upload.
                     </td>
                 </tr>
