@@ -7,6 +7,7 @@ use App\Models\mahasiswa;
 use App\Http\Controllers\mahasiswaController;
 use App\Http\Controllers\proyekController;
 use App\Models\proyek;
+use App\Models\Hash;
 use App\Models\kelompok;
 use App\Models\gambarProyek;
 
@@ -54,15 +55,14 @@ class admin extends Controller
     
     public function detailProyek(){
         if(isset($_GET["proyekInfo"])){
-            $proyekID = $_GET["proyekInfo"];
             try {    
+                $proyekID = Hash::getRevHashId((int)$_GET["proyekInfo"]);
                 $part = "detailProyek";
                 $proyek = proyekController::getProyekById($proyekID);
                 return view("layouts/admin", compact("part", "proyek"));
             } catch (\Throwable $th) {
                 $part = "nullProyek";
-                $proyek = proyekController::getProyekById($proyekID);
-                return view("layouts/admin", compact("part", "proyek"));
+                return view("layouts/admin", compact("part", ));
             }
         }else{
             self::kelolaProyek();
