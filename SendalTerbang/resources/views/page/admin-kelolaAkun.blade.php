@@ -12,8 +12,8 @@ use App\Models\Hash;
     <table class="table list-table">
         <tr>
             <th>No</th>
-            <th>Nama</th>
             <th>NIM</th>
+            <th>Nama</th>
             <th>Angkatan</th>
             <th>Email</th>
             <th>Akis</th>

@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\mahasiswa;
+use App\Http\Controllers\mahasiswaController;
 use App\Models\proyek;
 
-$mahasiswa = mahasiswa::all();
+$mahasiswa = mahasiswaController::getAllMahasiswa();
 $jumlah_mahasiswa = count($mahasiswa);
 
 $proyek = proyek::all();

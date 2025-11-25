@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\mahasiswa;
 use App\Http\Controllers\mahasiswaController;
 use App\Http\Controllers\proyekController;
 use App\Models\proyek;
 use App\Models\Hash;
-use App\Models\kelompok;
-use App\Models\gambarProyek;
 
 class admin extends Controller
 {
     public function admin( ){
         
         $part = 'dashboard';
-        $mahasiswa = mahasiswa::all();
+        $mahasiswa = mahasiswaController::getAllMahasiswa();
         $proyek = proyek::all();
         $jumlah_proyek = count($proyek);
         $proyek_ver = proyek::where("verifikasi", true)->get();
@@ -30,10 +27,10 @@ class admin extends Controller
         if( isset($_GET["keyword"]) ){
             $keyword = $_GET["keyword"];
             $search_history = $keyword;
-            $mahasiswa = mahasiswaController::getMahasiswaFromKeyword($keyword);
+            $mahasiswa = mahasiswaController::getMahasiswaListFromKeyword($keyword);
             return view("layouts/admin", compact("part", "mahasiswa", "search_history"));
         }else{
-            $mahasiswa = mahasiswa::all();
+            $mahasiswa = mahasiswaController::getAllMahasiswa();
             $search_history = "";
             return view("layouts/admin", compact("part", "mahasiswa", "search_history") );
         }
