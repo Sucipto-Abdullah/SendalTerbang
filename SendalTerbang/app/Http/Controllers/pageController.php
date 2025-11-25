@@ -8,6 +8,7 @@ use App\Models\mahasiswa;
 use App\Models\proyek;
 use App\Models\kelompok;
 use App\Models\gambarProyek;
+use Illuminate\Support\Facades\Auth;
 
 class pageController extends Controller
 {
@@ -49,6 +50,14 @@ class pageController extends Controller
     {
         $page = "login";
         return view("page/login", compact("page"));
+    }
+    
+    public function profile()
+    {
+        
+        $user = Auth::user(); // ambil data user yang sedang login
+        $page = "profile";
+        return view("layouts/main", compact("page"));
     }
     
     public function search(Request $request)

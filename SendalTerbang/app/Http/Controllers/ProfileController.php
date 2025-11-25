@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $users = Auth::users(); // ambil data user yang sedang login
-        return view('profile.index', compact('users'));
+        $user = Auth::user(); // ambil data user yang sedang login
+        Route::get('/profile', [pageController::class, 'profile'] )->name('profile');
     }
 }
