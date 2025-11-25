@@ -48,11 +48,14 @@ class pageController extends Controller
         $page = 'admin';
         return view("layouts/admin", compact("page"));
     }
-    public function userProyek( ){
+    public function userProyek()
+    {
         $page = 'userProyek';
-        $proyek = Proyek::all();
-        return view("layouts/main", compact("page", "proyek"));
+        $proyek = Proyek::where('user_id', Auth::id())->get();
+        return view("page/proyek/index", compact('proyek'));
+
     }
+
 
     public function login()
     {

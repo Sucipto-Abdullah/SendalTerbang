@@ -9,6 +9,7 @@ class Proyek extends Model
     protected $table = 'proyek';
 
     protected $fillable = [
+        'user_id',
         'judul_proyek',
         'nama_anggota',
         'dosen_pembimbing',
@@ -20,5 +21,11 @@ class Proyek extends Model
         'foto_proyek',
         'status'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
 
