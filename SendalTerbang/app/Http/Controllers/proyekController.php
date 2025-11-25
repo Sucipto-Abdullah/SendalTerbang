@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\proyek;
 use App\Models\kelompok;
-use App\Models\mahasiswa;
+use App\Http\Controllers\kelompokController;
 use App\Models\gambarProyek;
-use Ramsey\Collection\Collection;
 
 class proyekController extends Controller
 {
@@ -23,14 +22,20 @@ class proyekController extends Controller
 
     public static function getProyekById( int $id ){
         $array = proyek::where("id", (string)$id)->get()->first();
-        $Arr_img = self::getImageProyekById($id);
-        $img_location = array();
         
+        $Arr_img = self::getImageProyekById($id);
+        $Arr_group = kelompokController::getKelompokFromProyek($id);
+
+        $img_location = array();
+        $mahasiswa = array();
+
         foreach($Arr_img as $img){
             $img_loc = $img["lokasi"];
             array_push($img_location, $img_loc);
         }
+
         $array["images"] = $img_location;
+        $array["mahasiswa"] = $Arr_group;
         return $array;
     }
 

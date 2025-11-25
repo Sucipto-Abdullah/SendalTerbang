@@ -60,8 +60,12 @@ Route::get('/login', [pageController::class, 'login'] )->name('login');
 
 Route::get('/admin', [admin::class, 'admin'] )->name('admin');
 Route::get('/admin-dashboard', [admin::class, 'admin'] )->name('admin');
+
 Route::get('/admin-kelola-akun', [admin::class, 'kelolaAkun'] )->name('admin');
+Route::get('/admin-detail-akun', [admin::class, 'detailAkun'] )->name('admin');
+
 Route::get('/admin-kelola-proyek', [admin::class, 'kelolaProyek'] )->name('admin');
 Route::get('/admin-detail-proyek', [admin::class, 'detailProyek'] )->name('admin');
+
 Route::get('/admin-vertifikasi', [admin::class, 'vertifikasi'] )->name('admin');
 Route::get('/admin-kelolaDanPenilaian', [admin::class, 'kelolaDanPenilaian'] )->name('admin');

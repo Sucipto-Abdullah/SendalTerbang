@@ -69,6 +69,22 @@ class admin extends Controller
         }
     }
 
+    public function detailAkun(){
+        if(isset($_GET["akunInfo"])){
+            try {    
+                $mahasiswaID = Hash::getRevHashId((int)$_GET["akunInfo"]);
+                $part = "detailMahasiswa";
+                $mahasiswa = mahasiswaController::getMahasiswaById($mahasiswaID);
+                return view("layouts/admin", compact("part", "mahasiswa"));
+            } catch (\Throwable $th) {
+                $part = "nullProyek";
+                return view("layouts/admin", compact("part"));
+            }
+        }else{
+            self::kelolaAkun();
+        }
+    }
+
     public function vertifikasi( ){
 
         $part = 'vertifikasi';

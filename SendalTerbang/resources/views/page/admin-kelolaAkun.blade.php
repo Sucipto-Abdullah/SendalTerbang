@@ -1,3 +1,7 @@
+<?php
+use App\Models\Hash;
+?>
+
 <div class="table list-project">
 
     <form class="find-project" action="/admin-kelola-akun" name="search-akun" method="GET">
@@ -21,7 +25,11 @@
             <td>{{ $mahasiswa[$i]["nama"] }}</td>
             <td>{{ $mahasiswa[$i]["angkatan"] }}</td>
             <td class="cenCol">{{ $mahasiswa[$i]["email"] }}</td>
-            <td class="cenCol"></td>
+            <td class="cenCol">
+                <form action="admin-detail-akun" method="GET">
+                    <button name="akunInfo" value="{{ Hash::getHashId($mahasiswa[$i]["id"]) }}" class="project-info-button">Info</button>
+                </form>
+            </td>
         </tr>
         @endfor
     </table>

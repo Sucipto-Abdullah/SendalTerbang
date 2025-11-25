@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\mahasiswa;
+use App\Http\Controllers\kelompokController;
+use App\Http\Controllers\proyekController;
+use App\Http\Controllers\sosialMediaController;
 use Illuminate\Http\Request;
 
 class mahasiswaController extends Controller
@@ -23,4 +26,15 @@ class mahasiswaController extends Controller
         }
         return $array_result;
     }
+    
+    public static function getMahasiswaById( int $id ){
+        $array = mahasiswa::where("id", (string)$id)->get()->first();
+        $proyekContrib = kelompokController::getProyekFromMahasiswa($id);
+        $sosialMedia = sosialMediaController::getSosialMediaByIdMahasiswa($id);
+
+        $array["proyek"] = $proyekContrib;
+        $array["sosial_media"] = $sosialMedia;
+        return $array;
+    }
+
 }
