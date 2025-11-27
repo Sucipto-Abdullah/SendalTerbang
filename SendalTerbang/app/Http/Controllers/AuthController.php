@@ -33,9 +33,10 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             $user = Auth::user();
+            session(["login" => true]); 
 
             if ($user->role === 'admin') {
-                return redirect()->route('admin');
+                return redirect("/admin");
             }
             if ( $user->role === 'mahasiswa' ){
                 $mahasiswa = mahasiswaController::getMahasiswaFromUserId($user->id);

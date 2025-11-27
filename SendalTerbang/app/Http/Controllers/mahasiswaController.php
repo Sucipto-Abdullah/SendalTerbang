@@ -94,7 +94,6 @@ class mahasiswaController extends Controller
     }
 
     public static function addMahasiswa( array $mahasiswa){
-        $userId = Users::all()->last()["id"]+1;
         $userData = [
             'username' => $mahasiswa["nama"],
             'kode' => $mahasiswa["nim"],
@@ -102,13 +101,16 @@ class mahasiswaController extends Controller
             'role' => "mahasiswa",
             'password' => bcrypt($mahasiswa["password"])
         ];
+        Users::create($userData);
+
+        $userId = Users::where("password", $userData["password"])->get()->first()["id"];
+
         $mahasiswaData = [
             "userID" => (int)$userId,
             "angkatan" => (int)$mahasiswa["angkatan"],
             "kelas" => (string)$mahasiswa["kelas"]
         ];
 
-        Users::create($userData);
         mahasiswa::create($mahasiswaData);
         return true;
     }

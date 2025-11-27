@@ -8,26 +8,26 @@ use App\Http\Controllers\pageController;
 use App\Http\Controllers\proyekController;
 use App\Models\proyek;
 use App\Models\Hash;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Route;
 
 class admin extends Controller
 {
+    public function checkAdmin(){
+        if( !session("login") || !Auth::user()->role === 'admin'){
+            return redirect("/home");
+        }
+    }
+
     public function admin( ){
         
-        if( session("login") ){
             $part = 'dashboard';
             $mahasiswa = mahasiswaController::getAllMahasiswa();
             $proyek = proyek::all();
             $jumlah_proyek = count($proyek);
             $proyek_ver = proyek::where("verifikasi", true)->get();
             return view("layouts/admin", compact("part", "mahasiswa", "jumlah_proyek", "proyek", "proyek_ver"));
-        }
-        else{
-            // Route::redirect("/home", "home");
-            return redirect("/home");
-        }
-
     }
     public function kelolaAkun(){
 
