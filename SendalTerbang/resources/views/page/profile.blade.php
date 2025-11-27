@@ -12,14 +12,16 @@
 .btn-edit:hover{background:#0056b3;}
 </style>
 
+
+
 <div class="profile-card text-center">
 
     <img class="profile-avatar mb-3"
          src="{{ asset('image/profile-default.png') }}"
          alt="Avatar">
 
-    <h3>{{ ucfirst(Auth::user()->username) }}</h3>
-    <small class="text-muted">{{ ucfirst(Auth::user()->email) }}</small>
+    <h3>{{ session("account")["nama"] }}</h3>
+    <small class="text-muted">{{ session("account")["email"] }}</small>
 
     <hr>
 
@@ -33,7 +35,24 @@
         <div class="mb-3 text-start">
             <label class="form-label fw-bold">Nama</label>
             <input type="text" name="name" class="form-control"
-                   value="{{ ucfirst(Auth::user()->username) }}" required>
+                   value="{{ session("account")["nama"] }}" required>
+        </div>
+
+        <div class="mb-3 text-start">
+            <label class="form-label fw-bold">NIM</label>
+            <input type="text" name="name" class="form-control" disabled
+                   value="{{ session("account")["nim"] }}" required>
+        </div>
+
+        <div class="mb-3 text-start">
+            <label class="form-label fw-bold">Angkatan</label>
+            <input type="text" name="name" class="form-control" disabled
+                   value="{{ session("account")["angkatan"] }}" required>
+        </div>
+        <div class="mb-3 text-start">
+            <label class="form-label fw-bold">kelas</label>
+            <input type="text" name="name" class="form-control" disabled
+                   value="{{ session("account")["kelas"] }}" required>
         </div>
 
         <div class="mb-3 text-start">

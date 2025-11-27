@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\mahasiswaController;
+
 class AuthController extends Controller
 {
     public function showLogin()
@@ -35,6 +37,10 @@ class AuthController extends Controller
             if ($user->role === 'admin') {
                 return redirect()->route('admin');
             }
+            if ( $user->role === 'mahasiswa' ){
+                $mahasiswa = mahasiswaController::getMahasiswaFromUserId($user->id);
+                session(["account" => $mahasiswa]);
+            }
 
             return redirect()->intended('/');
         }
@@ -52,5 +58,10 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function createMhsAcc(){
+        $page = "home";
+        return view("layouts/main", compact("page"));
     }
 }

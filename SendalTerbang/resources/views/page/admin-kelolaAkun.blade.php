@@ -4,10 +4,18 @@ use App\Models\Hash;
 
 <div class="table list-project">
 
-    <form class="find-project" action="/admin-kelola-akun" name="search-akun" method="GET">
-        <input class="find-project-input" value="{{ isset($search_history) ? $search_history : "" }}" name="keyword" type="text" placeholder="cari akun">
-        <button class="find-project-button">Cari</button>
-    </form>
+    <div class="admin-option">
+
+        <form class="find-project" action="/admin-kelola-akun" name="search-akun" method="GET">
+            <input class="find-project-input" value="{{ isset($search_history) ? $search_history : "" }}" name="keyword" type="text" placeholder="cari akun">
+            <button class="find-project-button">Cari</button>
+        </form>
+    
+        <a class="add-account-button" href="/admin-tambah-akun">
+            <button class=""><i class="bi bi-plus-circle"></i> Tambah Akun</button>
+        </a>
+        
+    </div>
 
     <table class="table list-table">
         <tr>

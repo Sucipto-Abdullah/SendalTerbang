@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
+use PhpParser\Node\Name;
 
 
 Route::middleware(['guest'])->group(function () {
@@ -39,6 +40,8 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::post("create-akun-mahasiswa", [Admin::class, "createMhsAcc"])->name("createMhsAcc.post");
+
 // Halaman utama mahasiswa
 Route::get('/', function () {
     return view('home');
@@ -63,9 +66,11 @@ Route::get('/admin-dashboard', [admin::class, 'admin'] )->name('admin');
 
 Route::get('/admin-kelola-akun', [admin::class, 'kelolaAkun'] )->name('admin');
 Route::get('/admin-detail-akun', [admin::class, 'detailAkun'] )->name('admin');
+Route::get('/admin-tambah-akun', [admin::class, 'HalamanTambahAkun'] )->name('admin');
 
 Route::get('/admin-kelola-proyek', [admin::class, 'kelolaProyek'] )->name('admin');
 Route::get('/admin-detail-proyek', [admin::class, 'detailProyek'] )->name('admin');
+
 
 Route::get('/admin-vertifikasi', [admin::class, 'vertifikasi'] )->name('admin');
 Route::get('/admin-kelolaDanPenilaian', [admin::class, 'kelolaDanPenilaian'] )->name('admin');

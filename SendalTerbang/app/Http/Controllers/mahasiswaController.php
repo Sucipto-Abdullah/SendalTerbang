@@ -6,6 +6,7 @@ use App\Models\Users;
 use App\Http\Controllers\kelompokController;
 use App\Http\Controllers\proyekController;
 use App\Http\Controllers\sosialMediaController;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class mahasiswaController extends Controller
@@ -55,6 +56,12 @@ class mahasiswaController extends Controller
         return $mahasiswa_List_result;
     }
     
+    public static function getMahasiswaFromUserId(int $id){
+        $mahasiswaID = mahasiswa::where("userID", (string)$id)->get()->first()["id"];
+        $mahasiswaData = self::getMahasiswaById($mahasiswaID);
+        return $mahasiswaData;
+    }
+
     public static function getMahasiswaById( int $id ){
 
         $mahasiswa = array(
@@ -69,7 +76,7 @@ class mahasiswaController extends Controller
         );
 
         $array = mahasiswa::where("id", (string)$id)->get()->first();
-        $user = Users::where("id", $array["userID"])->get()[0];
+        $user = Users::where("id", $array["userID"])->get()->first();
 
         $mahasiswa["id"] = $array["id"];
         $mahasiswa["nama"] = $user["username"];
@@ -84,6 +91,26 @@ class mahasiswaController extends Controller
         $mahasiswa["proyek"] = $proyekContrib;
         $mahasiswa["sosial_media"] = $sosialMedia;
         return $mahasiswa;
+    }
+
+    public static function addMahasiswa( array $mahasiswa){
+        $userId = Users::all()->last()["id"]+1;
+        $userData = [
+            'username' => $mahasiswa["nama"],
+            'kode' => $mahasiswa["nim"],
+            'email' => $mahasiswa["email"],
+            'role' => "mahasiswa",
+            'password' => bcrypt($mahasiswa["password"])
+        ];
+        $mahasiswaData = [
+            "userID" => (int)$userId,
+            "angkatan" => (int)$mahasiswa["angkatan"],
+            "kelas" => (string)$mahasiswa["kelas"]
+        ];
+
+        Users::create($userData);
+        mahasiswa::create($mahasiswaData);
+        return true;
     }
 
 }

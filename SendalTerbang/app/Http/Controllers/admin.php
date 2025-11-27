@@ -4,20 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\mahasiswaController;
+use App\Http\Controllers\pageController;
 use App\Http\Controllers\proyekController;
 use App\Models\proyek;
 use App\Models\Hash;
+
+use Illuminate\Support\Facades\Route;
 
 class admin extends Controller
 {
     public function admin( ){
         
-        $part = 'dashboard';
-        $mahasiswa = mahasiswaController::getAllMahasiswa();
-        $proyek = proyek::all();
-        $jumlah_proyek = count($proyek);
-        $proyek_ver = proyek::where("verifikasi", true)->get();
-        return view("layouts/admin", compact("part", "mahasiswa", "jumlah_proyek", "proyek", "proyek_ver"));
+        if( session("login") ){
+            $part = 'dashboard';
+            $mahasiswa = mahasiswaController::getAllMahasiswa();
+            $proyek = proyek::all();
+            $jumlah_proyek = count($proyek);
+            $proyek_ver = proyek::where("verifikasi", true)->get();
+            return view("layouts/admin", compact("part", "mahasiswa", "jumlah_proyek", "proyek", "proyek_ver"));
+        }
+        else{
+            // Route::redirect("/home", "home");
+            return redirect("/home");
+        }
+
     }
     public function kelolaAkun(){
 
@@ -81,7 +91,12 @@ class admin extends Controller
             self::kelolaAkun();
         }
     }
-
+    
+    public function HalamanTambahAkun(){
+        $part = "tambahMahasiswa";
+        return view("layouts/admin", compact("part"));
+    }
+    
     public function vertifikasi( ){
 
         $part = 'vertifikasi';
@@ -91,5 +106,18 @@ class admin extends Controller
 
         $part = 'kelolaDanPenilaian';
         return view("layouts/admin", compact("part"));
+    }
+    
+    public function createMhsAcc( Request $request ){
+        $part = "tambahMahasiswa";
+        $mahasiswa = $request->all();
+
+        if ( mahasiswaController::addMahasiswa($request->all()) ){
+            echo "yey berhasil cuy";
+        }
+
+
+
+        // return view("layouts/admin", compact("part"));    
     }
 }
