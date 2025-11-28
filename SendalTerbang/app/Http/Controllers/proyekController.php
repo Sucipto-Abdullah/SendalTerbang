@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use Illuminate\Http\Request;
 use App\Models\proyek;
 use App\Models\kelompok;
@@ -77,5 +78,20 @@ class proyekController extends Controller
         } catch (\Throwable $th) {
             return false;
         }
+    }
+
+    public static function addNewProyek( Request $request, array $kelompok){
+        $projectTable = [
+            "judul" => $request->input("judul"),
+            "deskripsi" => $request->input("deskripsi"),
+            "link" => $request->input("link", ""),
+            "diperbarui" => new DateTime();
+            "proposal" => $request->input("proposal", ""),
+            "laporan" => $request->input("laporan", "")
+        ];
+
+        proyek::created($projectTable);
+        $projectId = proyek::all()->last();
+        kelompokController::addKelompok($projectId, $kelompok);
     }
 }

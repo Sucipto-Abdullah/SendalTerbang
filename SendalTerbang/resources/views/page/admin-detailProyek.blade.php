@@ -46,12 +46,20 @@
             <ul>
                 <li class="detail-header">Proposal Proyek :
                     <ul>
-                        <a class="detail-value detail-file" href="document/PROPOSAL_TUBES_KELOMPOK_6.pdf"><li>Proposal</li></a>
+                        @if($proyek["proposal"] != "")
+                            <a class="detail-value detail-file" href="document/Proposal/{{$proyek["proposal"]}}.pdf"><li>Proposal</li></a>
+                        @else
+                            <a class="detail-value detail-file" href=""><li>Proposal</li></a>
+                        @endif
                     </ul>
                 </li>
                 <li class="detail-header">Laporan Proyek :
                     <ul>
-                        <a class="detail-value detail-file" href="document/PROPOSAL_TUBES_KELOMPOK_6.pdf"><li>Laporan</li></a>
+                        @if($proyek["laporan"] != "")
+                            <a class="detail-value detail-file" href="document/Laporan/{{$proyek["laporan"]}}.pdf"><li>Laporan</li></a>
+                        @else
+                            <a class="detail-value detail-file" href=""><li>Laporan</li></a>
+                        @endif
                     </ul>
                 </li>
             </ul>

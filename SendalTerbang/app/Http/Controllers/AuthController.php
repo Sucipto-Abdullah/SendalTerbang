@@ -33,6 +33,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             $user = Auth::user();
+            session(["user-role" => $user->role]);
             session(["login" => true]); 
 
             if ($user->role === 'admin') {

@@ -85,7 +85,7 @@ class mahasiswaController extends Controller
         $mahasiswa["email"] = $user["email"];
         $mahasiswa["angkatan"] = $array["angkatan"];
 
-        $proyekContrib = kelompokController::getProyekFromMahasiswa($id);
+        $proyekContrib = kelompokController::getProyekFromMahasiswa($array["id"]);
         $sosialMedia = sosialMediaController::getSosialMediaByIdMahasiswa($id);
 
         $mahasiswa["proyek"] = $proyekContrib;
@@ -113,6 +113,14 @@ class mahasiswaController extends Controller
 
         mahasiswa::create($mahasiswaData);
         return true;
+    }
+
+    public static function isExist( array $mahasiswa ){
+        $nim = $mahasiswa["nim"];
+        if( count(self::getMahasiswaListFromKeyword($nim)) > 0 ){
+            return true;
+        }
+        return false;
     }
 
 }

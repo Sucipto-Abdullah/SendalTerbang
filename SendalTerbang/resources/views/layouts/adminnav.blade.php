@@ -5,8 +5,8 @@
         <a class="<?= $part == 'dashboard' ? 'active' : '' ?>" href="/admin-dashboard"><li><i class="bi bi-house-door"></i>  Dashboard</li></a>
         <a class="<?= $part == 'kelolaProyek' ? 'active' : '' ?>" href="/admin-kelola-proyek"><li><i class="bi bi-clipboard2-pulse"></i>  Kelola Proyek</li></a>
         <a class="<?= $part == 'kelolaAkun' ? 'active' : '' ?>" href="/admin-kelola-akun"><li><i class="bi bi-person-circle"></i>  Kelola Akun</li></a>
-        <a class="<?= $part == 'vertifikasi' ? 'active' : '' ?>" href="/admin-vertifikasi"><li><i class="bi bi-clipboard-check"></i>  Vertifikasi Proyek</li></a>
-        <a class="<?= $part == 'kelolaDanPenilaian' ? 'active' : '' ?>" href="/admin-kelolaDanPenilaian"><li><i class="bi bi-graph-up"></i>  Kelola dan Penilaian</li></a>
+        <!-- <a class="<?= $part == 'vertifikasi' ? 'active' : '' ?>" href="/admin-vertifikasi"><li><i class="bi bi-clipboard-check"></i>  Vertifikasi Proyek</li></a> -->
+        <!-- <a class="<?= $part == 'kelolaDanPenilaian' ? 'active' : '' ?>" href="/admin-kelolaDanPenilaian"><li><i class="bi bi-graph-up"></i>  Kelola dan Penilaian</li></a> -->
     </ul>
     
     <ul>

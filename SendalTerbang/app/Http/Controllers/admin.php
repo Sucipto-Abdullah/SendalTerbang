@@ -14,22 +14,21 @@ use Illuminate\Support\Facades\Route;
 
 class admin extends Controller
 {
-    public function checkAdmin(){
+    public function admin( ){
         if( !session("login") || !Auth::user()->role === 'admin'){
             return redirect("/home");
         }
-    }
-
-    public function admin( ){
-        
-            $part = 'dashboard';
-            $mahasiswa = mahasiswaController::getAllMahasiswa();
-            $proyek = proyek::all();
-            $jumlah_proyek = count($proyek);
-            $proyek_ver = proyek::where("verifikasi", true)->get();
-            return view("layouts/admin", compact("part", "mahasiswa", "jumlah_proyek", "proyek", "proyek_ver"));
+        $part = 'dashboard';
+        $mahasiswa = mahasiswaController::getAllMahasiswa();
+        $proyek = proyek::all();
+        $jumlah_proyek = count($proyek);
+        $proyek_ver = proyek::where("verifikasi", true)->get();
+        return view("layouts/admin", compact("part", "mahasiswa", "jumlah_proyek", "proyek", "proyek_ver"));
     }
     public function kelolaAkun(){
+        if( !session("login") || !Auth::user()->role === 'admin'){
+            return redirect("/home");
+        }
 
         $part = 'kelolaAkun';
         $page = "kelolaAkun";
@@ -47,6 +46,10 @@ class admin extends Controller
     }
 
     public function kelolaProyek(){
+        
+        if( !session("login") || !Auth::user()->role === 'admin'){
+            return redirect("/home");
+        }
 
         $part = 'kelolaProyek';
 
@@ -61,22 +64,32 @@ class admin extends Controller
     }
     
     public function detailProyek(){
+        
+        if( !session("login") || !Auth::user()->role === 'admin'){
+            return redirect("/home");
+        }
+
         if(isset($_GET["proyekInfo"])){
-            try {    
+            // try {    
                 $proyekID = Hash::getRevHashId((int)$_GET["proyekInfo"]);
                 $part = "detailProyek";
                 $proyek = proyekController::getProyekById($proyekID);
                 return view("layouts/admin", compact("part", "proyek"));
-            } catch (\Throwable $th) {
-                $part = "nullProyek";
-                return view("layouts/admin", compact("part", ));
-            }
+            // } catch (\Throwable $th) {
+            //     $part = "nullProyek";
+            //     return view("layouts/admin", compact("part", ));
+            // }
         }else{
             self::kelolaProyek();
         }
     }
 
     public function detailAkun(){
+        
+        if( !session("login") || !Auth::user()->role === 'admin'){
+            return redirect("/home");
+        }
+        
         if(isset($_GET["akunInfo"])){
             try {    
                 $mahasiswaID = Hash::getRevHashId((int)$_GET["akunInfo"]);
@@ -93,6 +106,11 @@ class admin extends Controller
     }
     
     public function HalamanTambahAkun(){
+        
+        if( !session("login") || !Auth::user()->role === 'admin'){
+            return redirect("/home");
+        }
+        
         $part = "tambahMahasiswa";
         return view("layouts/admin", compact("part"));
     }
@@ -112,12 +130,14 @@ class admin extends Controller
         $part = "tambahMahasiswa";
         $mahasiswa = $request->all();
 
-        if ( mahasiswaController::addMahasiswa($request->all()) ){
-            echo "yey berhasil cuy";
+        if(mahasiswaController::isExist($mahasiswa)){
+            return redirect("/admin-tambah-akun");
         }
 
-
-
-        // return view("layouts/admin", compact("part"));    
+        if ( mahasiswaController::addMahasiswa($mahasiswa) ){
+            return redirect("/admin-kelola-akun");
+        }else{
+            return redirect("/admin-tambah-akun");
+        }
     }
 }

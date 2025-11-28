@@ -14,33 +14,51 @@ class pageController extends Controller
 {
     public function home()
     {
+        if(session("user-role") === "admin"){
+            Auth::logout();
+        }
         $page = "home";
         return view("layouts/main", compact("page"));
     }
 
     public function expo()
     {
+        if(session("user-role") === "admin"){
+            Auth::logout();
+        }
         $page = "expo";
         return view("layouts/main", compact("page"));
     }
     public function repository()
     {
+        if(session("user-role") === "admin"){
+            Auth::logout();
+        }
         $page = "repository";
         return view("layouts/main", compact("page"));
     }
     public function about()
     {
+        if(session("user-role") === "admin"){
+            Auth::logout();
+        }
         $page = "about";
         return view("layouts/main", compact("page"));
     }
     public function contact()
     {
+        if(session("user-role") === "admin"){
+            Auth::logout();
+        }
         $page = "contact";
         return view("layouts/main", compact("page"));
     }
 
     public function project()
     {
+        if(session("user-role") === "admin"){
+            Auth::logout();
+        }
         $page = "project";
         return view("layouts/main", compact("page"));
     }
