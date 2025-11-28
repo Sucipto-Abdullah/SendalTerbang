@@ -33,7 +33,7 @@ class kelompokController extends Controller
     }
 
     public static function addKelompok( int $proyekId, array $mahasiswa_array){
-        for($mahasiswa_array as $anggota){
+        foreach($mahasiswa_array as $anggota){
             $anggotaData = [
                 "mahasiswa" => $anggota["id"],
                 "proyek" => $proyekId

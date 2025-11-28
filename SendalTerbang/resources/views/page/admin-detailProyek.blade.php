@@ -1,3 +1,7 @@
+<?php
+use App\Models\Hash;
+?>
+
 <div class="detail-proyek">
 
     <div class="detail-header-yanglainnya">
@@ -91,9 +95,7 @@
                 <li class="detail-header detail-mahasiswa">Mahasiswa :
                     <ul>
                         @foreach ( $proyek["mahasiswa"] as $mahasiswa )
-                        
-                            <li class="detail-value"><a href="/admin-kelola-akun">{{ $mahasiswa["nama"] }} ({{ $mahasiswa["nim"] }})</a></li>
-                        
+                            <li class="detail-value"><a href="/admin-detail-akun?akunInfo={{ Hash::getHashId($mahasiswa["id"]) }}">{{ $mahasiswa["nama"] }} ({{ $mahasiswa["nim"] }})</a></li>
                         @endforeach
                     </ul>
                 </li>

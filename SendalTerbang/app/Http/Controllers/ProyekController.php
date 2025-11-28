@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Proyek; 
+use App\Models\gambarProyek; 
 
 class ProyekController extends Controller
 {
@@ -178,7 +179,7 @@ class ProyekController extends Controller
             "judul" => $request->input("judul"),
             "deskripsi" => $request->input("deskripsi"),
             "link" => $request->input("link", ""),
-            "diperbarui" => new DateTime();
+            "diperbarui" => new DateTime(),
             "proposal" => $request->input("proposal", ""),
             "laporan" => $request->input("laporan", "")
         ];
