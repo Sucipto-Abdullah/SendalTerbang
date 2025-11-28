@@ -23,6 +23,12 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function proyek()
+{
+    return $this->hasMany(Proyek::class);
+}
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

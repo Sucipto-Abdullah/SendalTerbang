@@ -10,6 +10,9 @@ use App\Models\kelompok;
 use App\Models\gambarProyek;
 use Illuminate\Support\Facades\Auth;
 
+// use App\Http\Controller\Proyek;
+use App\Models\Proyek;
+
 class pageController extends Controller
 {
     public function home()
@@ -62,8 +65,6 @@ class pageController extends Controller
         $page = "project";
         return view("layouts/main", compact("page"));
     }
-    
-
     public function login()
     {
         $page = "login";

@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
-use PhpParser\Node\Name;
 
+Route::middleware('auth')->group(function () {
+    Route::resource('proyek', ProyekController::class);
+});
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -57,7 +59,7 @@ Route::get('/expo', [pageController::class, 'expo'] )->name('expo');
 Route::get('/repository', [pageController::class, 'repository'] )->name('repository');
 Route::get('/about', [pageController::class, 'about'] )->name('about');
 Route::get('/contact', [pageController::class, 'contact'] )->name('contact');
-Route::get('/userProyek', [pageController::class, 'userProyek'] )->name('userProyek');
+Route::get('/userProyek', [pageController::class, 'userProyek'])->middleware('auth')->name('userProyek');
 Route::get('/login', [pageController::class, 'login'] )->name('login');
 
 
